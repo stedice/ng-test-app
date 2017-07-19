@@ -16,7 +16,7 @@ export class UsersService {
   getUsers(): Promise<User[]> {
     return this.http.get('http://jsonplaceholder.typicode.com/users')
                .toPromise()
-               .then(response => response.json().data as User[])
+               .then(response => response.json() as User[])
                .catch(this.handleError);
   }
 

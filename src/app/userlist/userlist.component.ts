@@ -20,7 +20,12 @@ export class UserlistComponent implements OnInit {
         .then(users => this.users = users);
   }
 
+  onSelect(user: User): void {
+    this.selectedUser = user;
+  }
+
   ngOnInit() {
+    this.getUsers();
   }
 
 }
