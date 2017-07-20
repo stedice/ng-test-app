@@ -1,3 +1,22 @@
-<p>
-  photolist works!
-</p>
+<div>
+  <h4>
+    Photos in {{album.title}}: 
+  </h4>
+  <div class="photos row">
+  <div class="col-xs-3 col-md-2" *ngFor="let photo of photos" (click)="onSelect(photo)"
+      [class.info]="photo === selectedPhoto">
+      <a href="{{photo.url}}" class="thumbnail" title="{{photo.title}}">
+        <img src="{{photo.thumbnailUrl}}" alt="{{photo.title}}">
+	    </a>
+  </div>
+</div>
+
+</div>
+
+<!-- <div *ngIf="selectedPhoto" class="modal fade" id="myLightbox" tabindex="55" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      {{selectedPhoto.url}}
+    </div>
+  </div>
+</div> -->

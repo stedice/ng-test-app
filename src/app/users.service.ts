@@ -5,6 +5,8 @@ import 'rxjs/add/operator/toPromise';
 
 import { User } from './user';
 import { Album } from './album';
+import { Photo } from './photo';
+
 
 @Injectable()
 export class UsersService {
@@ -25,6 +27,13 @@ export class UsersService {
     return this.http.get('http://jsonplaceholder.typicode.com/users/'+userId+'/albums')
                .toPromise()
                .then(response => response.json() as Album[])
+               .catch(this.handleError);
+  }
+
+  getAlbumPhotos(albumId): Promise<Photo[]> {
+    return this.http.get('http://jsonplaceholder.typicode.com/albums/'+albumId+'/photos')
+               .toPromise()
+               .then(response => response.json() as Photo[])
                .catch(this.handleError);
   }
   

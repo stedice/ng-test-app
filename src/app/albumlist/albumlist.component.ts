@@ -10,6 +10,7 @@ import { UsersService }         from '../users.service';
   templateUrl: './albumlist.component.html',
   styleUrls: ['./albumlist.component.css']
 })
+
 export class AlbumlistComponent implements OnChanges{
   @Input() user: User;
   albums: Album[];
@@ -30,6 +31,5 @@ export class AlbumlistComponent implements OnChanges{
   ngOnChanges(changes: SimpleChanges) {
     this.getUserAlbums(this.user.id);
   }
-
 
 }

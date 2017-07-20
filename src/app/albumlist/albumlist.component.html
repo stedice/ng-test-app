@@ -2,11 +2,13 @@
   <h4>
     Albums of {{user.name}}: 
   </h4>
-  <ul class="albums">
+  <ul class="nav nav-pills albums">
   <li *ngFor="let album of albums" (click)="onSelect(album)"
-      [class.info]="album === selectedAlbum">
-    <span class="badge">{{album.id}}</span>
-    <span>{{album.title}}</span>
+      [class.active]="album === selectedAlbum">
+    <!-- <span class="badge">{{album.id}}</span> -->
+    <a href="#" title="{{album.title}}">{{album.title | slice:0:10}}...</a>
   </li>
 </ul>
 </div>
+
+<app-photolist *ngIf="selectedAlbum" [album]="selectedAlbum"></app-photolist>
