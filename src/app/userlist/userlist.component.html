@@ -1,11 +1,21 @@
 <h4>All users:</h4>
-<ul class="users">
-  <li *ngFor="let user of users" (click)="onSelect(user)"
-      [class.active]="user === selectedUser">
-    <span class="badge">{{user.id}}</span>
-    <span>{{user.name}}</span>
-  </li>
-</ul>
+<table class="table table-hover table-condensed users" >
+  <thead>  
+    <tr>
+      <th>id</th>
+      <th>name</th> 
+      <th>e-mail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users" (click)="onSelect(user)"
+      [class.info]="user === selectedUser">
+      <th>{{user.id}}</th>
+      <td>{{user.name}}</td> 
+      <td>{{user.email}}</td>
+    </tr>
+  </tbody>
+</table>
 <div *ngIf="selectedUser">
   <h4>
     Selected user: 
@@ -14,3 +24,6 @@
     <p>{{selectedUser.address.street}}, {{selectedUser.address.suite}}</p>
     <p>{{selectedUser.address.city}} {{selectedUser.address.zipcode}}</p>
 </div>
+
+<app-albumlist *ngIf="selectedUser" [user]="selectedUser"></app-albumlist>
+<!--<app-photolist></app-photolist> -->

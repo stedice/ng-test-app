@@ -4,6 +4,7 @@ import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { User } from './user';
+import { Album } from './album';
 
 @Injectable()
 export class UsersService {
@@ -19,6 +20,14 @@ export class UsersService {
                .then(response => response.json() as User[])
                .catch(this.handleError);
   }
+
+  getUserAlbums(userId): Promise<Album[]> {
+    return this.http.get('http://jsonplaceholder.typicode.com/users/'+userId+'/albums')
+               .toPromise()
+               .then(response => response.json() as Album[])
+               .catch(this.handleError);
+  }
+  
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only

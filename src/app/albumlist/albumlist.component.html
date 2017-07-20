@@ -1,3 +1,12 @@
-<p>
-  albumlist works!
-</p>
+<div>
+  <h4>
+    Albums of {{user.name}}: 
+  </h4>
+  <ul class="albums">
+  <li *ngFor="let album of albums" (click)="onSelect(album)"
+      [class.info]="album === selectedAlbum">
+    <span class="badge">{{album.id}}</span>
+    <span>{{album.title}}</span>
+  </li>
+</ul>
+</div>
