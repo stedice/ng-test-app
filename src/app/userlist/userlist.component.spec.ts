@@ -10,8 +10,7 @@ import { MockUsersService }    from '../users.mockservice';
 describe('UserlistComponent', () => {
   let component: UserlistComponent;
   let fixture: ComponentFixture<UserlistComponent>;
-  let user = new User(1);
-  let selectedUser=user;
+  let compiled;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -26,11 +25,16 @@ describe('UserlistComponent', () => {
     fixture = TestBed.createComponent(UserlistComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    compiled = fixture.debugElement.nativeElement;
   });
 
   it('should be created', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render table title in a h4 tag', async(() => {
+    expect(compiled.querySelector('h4').textContent).toContain('All users:');
+  }));
 });
 
 
