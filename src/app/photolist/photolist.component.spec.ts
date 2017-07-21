@@ -2,13 +2,18 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PhotolistComponent } from './photolist.component';
 
+import { UsersService }        from '../users.service';
+import { MockUsersService }    from '../users.mockservice';
+
+
 describe('PhotolistComponent', () => {
   let component: PhotolistComponent;
   let fixture: ComponentFixture<PhotolistComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PhotolistComponent ]
+      declarations: [ PhotolistComponent ],
+      providers: [{provide: UsersService, useClass: MockUsersService}]
     })
     .compileComponents();
   }));

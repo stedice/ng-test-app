@@ -1,6 +1,6 @@
-<div>
+<div class="row col-md-12">
   <h4>
-    Photos in {{album.title}}: 
+    Photos in {{album?album.title:'unknown album'}}: 
   </h4>
   <div class="photos row">
   <div class="col-xs-3 col-md-2" *ngFor="let photo of photos" (click)="onSelect(photo)"
@@ -12,11 +12,3 @@
 </div>
 
 </div>
-
-<!-- <div *ngIf="selectedPhoto" class="modal fade" id="myLightbox" tabindex="55" role="dialog" aria-labelledby="myLargeModalLabel">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      {{selectedPhoto.url}}
-    </div>
-  </div>
-</div> -->

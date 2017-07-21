@@ -14,24 +14,24 @@ export class UsersService {
   constructor(private http: Http) { }
 
   private headers = new Headers({'Content-Type': 'application/json'});
-  //private heroesUrl = 'api/heroes';  // URL to web api
+  private baseUrl = 'http://jsonplaceholder.typicode.com';  // URL to web api
 
   getUsers(): Promise<User[]> {
-    return this.http.get('http://jsonplaceholder.typicode.com/users')
+    return this.http.get(this.baseUrl+'/users')
                .toPromise()
                .then(response => response.json() as User[])
                .catch(this.handleError);
   }
 
   getUserAlbums(userId): Promise<Album[]> {
-    return this.http.get('http://jsonplaceholder.typicode.com/users/'+userId+'/albums')
+    return this.http.get(this.baseUrl+'/users/'+userId+'/albums')
                .toPromise()
                .then(response => response.json() as Album[])
                .catch(this.handleError);
   }
 
   getAlbumPhotos(albumId): Promise<Photo[]> {
-    return this.http.get('http://jsonplaceholder.typicode.com/albums/'+albumId+'/photos')
+    return this.http.get(this.baseUrl+'/albums/'+albumId+'/photos')
                .toPromise()
                .then(response => response.json() as Photo[])
                .catch(this.handleError);

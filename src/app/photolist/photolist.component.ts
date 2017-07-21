@@ -1,6 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 
-import { User } from '../user';
 import { Album } from '../album';
 import { Photo } from '../photo';
 

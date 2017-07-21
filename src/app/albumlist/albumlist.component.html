@@ -1,11 +1,10 @@
-<div>
+<div class="row col-md-12">
   <h4>
-    Albums of {{user.name}}: 
+    Albums of {{user?user.name:'unknown user'}}: 
   </h4>
   <ul class="nav nav-pills albums">
   <li *ngFor="let album of albums" (click)="onSelect(album)"
       [class.active]="album === selectedAlbum">
-    <!-- <span class="badge">{{album.id}}</span> -->
     <a href="#" title="{{album.title}}">{{album.title | slice:0:10}}...</a>
   </li>
 </ul>
